@@ -8,10 +8,20 @@ module.exports = class kbot{
         };      
     }
 
-    saludar(nombre, genero)
+    saludar(nombre, genero, edad)
     {
         let mensaje;
-        mensaje = this.hola + " " + this.titulos[genero] + " " + nombre;
+        if(edad > 0 && edad < 30)
+        {
+            mensaje = this.hola + " " + nombre;
+        }
+        else if(edad >= 30)
+        {
+            mensaje = this.hola + " " + this.titulos[genero] + " " + nombre;
+        }
+        else{
+            mensaje = this.hola + ", " + "todavía no naciste  :/";
+        }
         return mensaje;
     }
 }
