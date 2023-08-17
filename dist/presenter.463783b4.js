@@ -134,15 +134,29 @@ module.exports = /*#__PURE__*/function () {
     };
   }
   _createClass(kbot, [{
+    key: "dia",
+    value: function dia() {
+      var hora = new Date().getHours();
+      var saludo;
+      if (hora >= 6 && hora < 12) {
+        saludo = "buenos días";
+      } else if (hora >= 12) {
+        saludo = "buenas tardes";
+      } else {
+        saludo = "buenas noches";
+      }
+      return saludo;
+    }
+  }, {
     key: "saludar",
     value: function saludar(nombre, genero, edad) {
       var mensaje;
       if (edad > 0 && edad < 30) {
-        mensaje = this.hola + " " + nombre;
+        mensaje = this.hola + ", " + this.dia() + " " + nombre;
       } else if (edad >= 30) {
-        mensaje = this.hola + " " + this.titulos[genero] + " " + nombre;
+        mensaje = this.hola + ", " + this.dia() + " " + this.titulos[genero] + " " + nombre;
       } else {
-        mensaje = this.hola + ", " + "todavía no naciste  :/";
+        mensaje = this.hola + ", " + this.dia() + " todavía no naciste  :/";
       }
       return mensaje;
     }
@@ -189,7 +203,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61512" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61576" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
