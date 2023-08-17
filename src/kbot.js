@@ -4,10 +4,10 @@ module.exports = class kbot{
         this.hola = "HOLA";        
     }
 
-    saludar()
+    saludar(nombre)
     {
         let mensaje;
-        mensaje = this.hola;
+        mensaje = this.hola + " " + nombre;
         return mensaje;
     }
 }

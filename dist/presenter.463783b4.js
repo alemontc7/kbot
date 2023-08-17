@@ -131,9 +131,9 @@ module.exports = /*#__PURE__*/function () {
   }
   _createClass(kbot, [{
     key: "saludar",
-    value: function saludar() {
+    value: function saludar(nombre) {
       var mensaje;
-      mensaje = this.hola;
+      mensaje = this.hola + " " + nombre;
       return mensaje;
     }
   }]);
@@ -145,11 +145,12 @@ module.exports = /*#__PURE__*/function () {
 var _kbot = _interopRequireDefault(require("./kbot"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var form = document.querySelector("#botform");
+var nom = document.querySelector("#nombre");
 var div = document.querySelector("#answer");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   var kb = new _kbot.default();
-  div.innerHTML = "<p>" + "<b>" + kb.saludar() + "</b>" + "<p>";
+  div.innerHTML = "<p>" + "<b>" + kb.saludar(nom.value) + "</b>" + "<p>";
 });
 },{"./kbot":"src/kbot.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -176,7 +177,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60371" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61029" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
