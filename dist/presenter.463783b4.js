@@ -149,7 +149,7 @@ var div = document.querySelector("#answer");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   var kb = new _kbot.default();
-  div.innerHTML = "<p>" + kb.saludar() + "<p>";
+  div.innerHTML = "<p>" + "<b>" + kb.saludar() + "</b>" + "<p>";
 });
 },{"./kbot":"src/kbot.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -176,7 +176,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60127" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60371" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

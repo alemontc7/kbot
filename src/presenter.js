@@ -5,5 +5,5 @@ form.addEventListener("submit", (event) =>
     {
         event.preventDefault();
         const kb = new kbot();
-        div.innerHTML = "<p>" + kb.saludar() + "<p>";
+        div.innerHTML = "<p>" + "<b>" + kb.saludar() + "</b>"+"<p>";
     });
