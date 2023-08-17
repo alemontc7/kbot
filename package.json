@@ -5,6 +5,7 @@
   "main": "presenter.js",
   "scripts": {
     "start": "parcel kbot.html",
+    "build": "parcel build kbot.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alejandro Montero",
