@@ -129,34 +129,44 @@ module.exports = /*#__PURE__*/function () {
     _classCallCheck(this, kbot);
     this.hola = "HOLA";
     this.titulos = {
-      "m": "Señor",
-      "f": "Señora"
+      "ES": {
+        "m": "Señor",
+        "f": "Señora"
+      },
+      "EN": {
+        "m": "Mr",
+        "f": "Mrs"
+      }
+    };
+    this.saludos = {
+      "ES": ["Hola", "buenos dias", "buenas tardes", "buenas noches"],
+      "EN": ["Hi", "Good morning", "Good evening", "Good night"]
     };
   }
   _createClass(kbot, [{
     key: "dia",
-    value: function dia() {
+    value: function dia(idioma) {
       var hora = new Date().getHours();
       var saludo;
       if (hora >= 6 && hora < 12) {
-        saludo = "buenos días";
+        saludo = this.saludos[idioma][1];
       } else if (hora >= 12) {
-        saludo = "buenas tardes";
+        saludo = this.saludos[idioma][2];
       } else {
-        saludo = "buenas noches";
+        saludo = this.saludos[idioma][3];
       }
       return saludo;
     }
   }, {
     key: "saludar",
-    value: function saludar(nombre, genero, edad) {
+    value: function saludar(nombre, genero, edad, idioma) {
       var mensaje;
       if (edad > 0 && edad < 30) {
-        mensaje = this.hola + ", " + this.dia() + " " + nombre;
+        mensaje = this.saludos[idioma][0] + ", " + this.dia(idioma) + " " + nombre;
       } else if (edad >= 30) {
-        mensaje = this.hola + ", " + this.dia() + " " + this.titulos[genero] + " " + nombre;
+        mensaje = this.saludos[idioma][0] + ", " + this.dia(idioma) + " " + this.titulos[idioma][genero] + " " + nombre;
       } else {
-        mensaje = this.hola + ", " + this.dia() + " todavía no naciste  :/";
+        mensaje = this.saludos[idioma][0] + ", " + this.dia(idioma) + " :/";
       }
       return mensaje;
     }
@@ -173,10 +183,11 @@ var nom = document.querySelector("#nombre");
 var div = document.querySelector("#answer");
 var gener = document.querySelector("#genero");
 var edad = document.querySelector("#edad");
+var idiom = document.querySelector("#idioma");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   var kb = new _kbot.default();
-  div.innerHTML = "<p>" + "<b>" + kb.saludar(nom.value, gener.value, edad.value) + "</b>" + "<p>";
+  div.innerHTML = "<p>" + "<b>" + kb.saludar(nom.value, gener.value, edad.value, idiom.value) + "</b>" + "<p>";
 });
 },{"./kbot":"src/kbot.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -203,7 +214,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61576" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61677" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
